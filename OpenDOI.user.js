@@ -25,7 +25,7 @@
 const SCI_HUB_URL = "https://sci-hub.tw";
 
 function getUserLanguage() {
-  const language = (navigator.language || 'en').slice(0, 2);
+  const language = navigator.language.slice(0, 2);
   return ['de', 'en', 'es', 'fr', 'it'].includes(language) ? language : 'en';
 }
 
@@ -145,7 +145,10 @@ function buildBannerContent(downloadLink) {
 
 async function displayBannerWhenDoiIsDetected() {
   const doiReference = getDoiReference();
-  if (!doiReference) return;
+  if (!doiReference) {
+    console.log('No DOI found.');
+    return;
+  }
   
   console.log("DOI detected:", doiReference);
   
