@@ -17,7 +17,7 @@
 // @noframes
 // @homepageURL    https://github.com/ivofcups/OpenDOI
 // @supportURL     https://github.com/ivofcups/OpenDOI/issues
-// @downloadURL    https://github.com/ivofcups/OpenDOI/blob/master/OpenDOI.user.js
+// @downloadURL    https://github.com/ivofcups/OpenDOI/raw/master/OpenDOI.user.js
 // ==/UserScript==
 
 /* jshint esversion: 6 */
