@@ -46,8 +46,8 @@ const errorMessages = {
 
 //Querry for name of doi, i insensitive
 function getDoiReference() {
-  const detectedDoiMeta = document.querySelector('meta[name="dc.identifier" i], meta[name="citation_doi" i]');
-  if (detectedDoiMeta) return detectedDoiMeta.content;
+  const detectedDoiMeta = document.querySelector('meta[name="doi" i], meta[name="dc.identifier" i], meta[name="citation_doi" i]');
+  if (detectedDoiMeta) return detectedDoiMeta.content.match(/10[\S]*/gi);
   return null;
 }
 
@@ -88,7 +88,7 @@ async function getDownloadLink(doiReference) {
     const pdfDownloadLink = scihubPageDocument.querySelector(`a[onclick$="?download=true'"]`);
     const match = pdfDownloadLink.getAttribute("onclick").match(/^location\.href='(.*)'$/);
     const downloadLink = match[1];
-    return downloadLink; 
+    return downloadLink.slice(0,-14); 
   } catch (e) {
     if (e instanceof NetworkError) {
       // If this is a network error, Sci-Hub is probably not working and it should be noted to the user
