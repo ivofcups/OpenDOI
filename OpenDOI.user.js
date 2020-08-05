@@ -17,6 +17,7 @@
 // @noframes
 // @homepageURL    https://github.com/ivofcups/OpenDOI
 // @supportURL     https://github.com/ivofcups/OpenDOI/issues
+// @downloadURL    https://github.com/ivofcups/OpenDOI/blob/master/OpenDOI.user.js
 // ==/UserScript==
 
 /* jshint esversion: 6 */
@@ -47,7 +48,8 @@ const errorMessages = {
 //Querry for name of doi, i insensitive
 function getDoiReference() {
   const detectedDoiMeta = document.querySelector('meta[name="doi" i], meta[name="dc.identifier" i], meta[name="citation_doi" i]');
-  if (detectedDoiMeta) return detectedDoiMeta.content.match(/10[\S]*/gi);
+  detectedDoiMeta.content = detectedDoiMeta.content.match(/10[\S]*/gi)[0];
+  if (detectedDoiMeta) return detectedDoiMeta.content;
   return null;
 }
 
