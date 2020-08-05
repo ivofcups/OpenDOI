@@ -15,7 +15,7 @@ OpenDOI is a userscript made for Greasemonkey, Tapermonkey or Violent Monkey
 Please report any issues.
 
 
-## Original progect
+## Original project
 OpenDOI is a fork of 'Sci-Hub downloader' made by clemente.
 * Sci-Hub downloader webpage: https://openuserjs.org/scripts/clemente/Sci-Hub_downloader
 
