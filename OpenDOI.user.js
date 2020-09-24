@@ -22,7 +22,7 @@
 
 /* jshint esversion: 6 */
 
-const SCI_HUB_URL = "https://sci-hub.tw";
+const SCI_HUB_URL = "https://sci-hub.tf";
 
 function getUserLanguage() {
   const language = navigator.language.slice(0, 2);
