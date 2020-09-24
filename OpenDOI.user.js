@@ -3,7 +3,7 @@
 // @namespace      https://github.com/ivofcups/OpenDOI
 // @match          *://*/*
 // @grant          GM_xmlhttpRequest
-// @version        1.01
+// @version        1.02
 // @author         ivofcups
 // @license        MIT
 // @description    Display a banner to download the article on Sci-Hub if available
