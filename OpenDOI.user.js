@@ -11,8 +11,8 @@
 // @description:es Despliegue un banner para descargar el artículo sobre Sci-Hub si está disponible
 // @description:fr Affiche une bannière pour télécharger l'article sur Sci-Hub si disponible
 // @description:it Mostra un banner per scaricare l'articolo su Sci-Hub, se disponibile
-// @icon           https://sci-hub.tw/favicon.ico
-// @connect        sci-hub.tw
+// @icon           https://sci-hub.st/favicon.ico
+// @connect        sci-hub.st
 // @inject-into    content
 // @noframes
 // @homepageURL    https://github.com/ivofcups/OpenDOI
@@ -22,7 +22,7 @@
 
 /* jshint esversion: 6 */
 
-const SCI_HUB_URL = "https://sci-hub.tf";
+const SCI_HUB_URL = "https://sci-hub.st";
 
 function getUserLanguage() {
   const language = navigator.language.slice(0, 2);
