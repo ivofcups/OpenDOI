@@ -2,8 +2,7 @@
 // @name           OpenDOI
 // @namespace      https://github.com/ivofcups/OpenDOI
 // @match          *://*/*
-// @grant          GM_xmlhttpRequest
-// @version        1.03
+// @version        1.04
 // @author         ivofcups
 // @license        MIT
 // @description    Display a banner to download the article on Sci-Hub if available
@@ -12,8 +11,6 @@
 // @description:fr Affiche une bannière pour télécharger l'article sur Sci-Hub si disponible
 // @description:it Mostra un banner per scaricare l'articolo su Sci-Hub, se disponibile
 // @icon           https://sci-hub.se/favicon.ico
-// @connect        sci-hub.se
-// @inject-into    content
 // @noframes
 // @homepageURL    https://github.com/ivofcups/OpenDOI
 // @supportURL     https://github.com/ivofcups/OpenDOI/issues
@@ -68,29 +65,10 @@ class NetworkError extends Error {
   }
 }
 
-function gm_fetch(url) {
-  return new Promise((resolve, reject) => {
-    GM_xmlhttpRequest({
-      method: "GET",
-      url: url,
-      onload: function({ status, responseText }) {
-        if (status < 200 && status >= 300) return reject(new NetworkError(status));
-        resolve(responseText);
-      },
-      onerror: function() { reject(new NetworkError()); },
-    });
-  });
-}
-
 async function getDownloadLink(doiReference) {
   try {
-    const scihubPageHtml = await gm_fetch(`${SCI_HUB_URL}/${doiReference}`);
-    const parser = new DOMParser();
-    const scihubPageDocument = parser.parseFromString(scihubPageHtml, "text/html");
-    const pdfDownloadLink = scihubPageDocument.querySelector(`a[onclick$="?download=true'"]`);
-    const match = pdfDownloadLink.getAttribute("onclick").match(/^location\.href='(.*)'$/);
-    const downloadLink = match[1];
-    return downloadLink.slice(0,-14); 
+    const scihubPageHtml = `${SCI_HUB_URL}/${doiReference}`;
+    return scihubPageHtml; 
   } catch (e) {
     if (e instanceof NetworkError) {
       // If this is a network error, Sci-Hub is probably not working and it should be noted to the user
