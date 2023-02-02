@@ -2,7 +2,7 @@
 // @name           OpenDOI
 // @namespace      https://github.com/ivofcups/OpenDOI
 // @match          *://*/*
-// @version        1.04
+// @version        1.05
 // @author         ivofcups
 // @license        MIT
 // @description    Display a banner to download the article on Sci-Hub if available
